@@ -56,10 +56,5 @@ services:
     networks:
       - libresign-e-commerce
 
-  memcached:
-    image: memcached:latest
-    networks:
-      - libresign-e-commerce
-
 networks:
   libresign-e-commerce:
