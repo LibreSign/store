@@ -1,0 +1,162 @@
+<div class="flex mx-auto max-w-lg flex-col justify-center px-6 py-12 lg:px-8">
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <img class="mx-auto h-20 w-auto"
+            src="https://cloud.librecode.coop/apps/files_sharing/publicpreview/z6BkPTALAr4JW4j?file=/Logo/bitmap/logo_libresign.png&fileId=525689&x=1007&y=952&a=true"
+            alt="LibreSign">
+        <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Login to your account
+        </h2>
+    </div>
+
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form class="space-y-6" wire:submit='login' action=''>
+            <div>
+                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+                <div class="mt-2">
+                    <input wire:model='email' id="email" name="email" type="email" autocomplete="email" required
+                        class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                @error('email')
+                <span class="text-red-500 text-xs">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div>
+                <div class="flex items-center justify-between">
+                    <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                    <div class="text-sm">
+                        <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <input wire:model='password' id="password" name="password" type="password"
+                        autocomplete="current-password" required
+                        class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                @error('password')
+                <span class="text-red-500 text-xs">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div>
+                <button
+                    class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Login</button>
+            </div>
+        </form>
+
+        <p class="mt-10 text-center text-sm text-gray-500">
+            Not a member?
+            <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Start a 30 day free
+                trial</a>
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<div class="flex mx-auto max-w-lg flex-col justify-center px-6 py-12 lg:px-8">
+    @if (session()->has('success'))
+    <div class="bg-teal-100 border-t-4 border-teal-500 rounded-b text-teal-900 px-4 py-3 shadow-md my-3" role="alert">
+        <div class="flex">
+            <div>
+                <p class="text-sm">{{ session('success') }}</p>
+            </div>
+        </div>
+    </div>
+    @endif
+    <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+        <img class="mx-auto h-20 w-auto"
+            src="https://cloud.librecode.coop/apps/files_sharing/publicpreview/z6BkPTALAr4JW4j?file=/Logo/bitmap/logo_libresign.png&fileId=525689&x=1007&y=952&a=true"
+            alt="LibreSign">
+        <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Sign in to your account
+        </h2>
+    </div>
+
+    <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form class="space-y-6" wire:submit='createNewUser' action=''>
+            <div>
+                <label for="name" class="block text-sm font-medium leading-6 text-gray-900">Full Name</label>
+                <div class="mt-2">
+                    <input wire:model='name' id="name" name="name" type="name" autocomplete="name" required
+                        class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                @error('name')
+                <span class="text-red-500 text-xs">{{ $message }}</span>
+                @enderror
+            </div>
+            <div>
+                <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
+                <div class="mt-2">
+                    <input wire:model='email' id="email" name="email" type="email" autocomplete="email" required
+                        class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                @error('email')
+                <span class="text-red-500 text-xs">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div>
+                <div class="flex items-center justify-between">
+                    <label for="password" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
+                    <div class="text-sm">
+                        <a href="#" class="font-semibold text-indigo-600 hover:text-indigo-500">Forgot password?</a>
+                    </div>
+                </div>
+                <div class="mt-2">
+                    <input wire:model='password' id="password" name="password" type="password"
+                        autocomplete="current-password" required
+                        class="px-2 block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+                </div>
+                @error('password')
+                <span class="text-red-500 text-xs">{{ $message }}</span>
+                @enderror
+            </div>
+
+            <div>
+                <button
+                    class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Create
+                    New User</button>
+            </div>
+        </form>
+
+        <p class="mt-10 text-center text-sm text-gray-500">
+            Not a member?
+            <a href="#" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Start a 30 day free
+                trial</a>
+        </p>
+    </div>
+
+    {{-- {{ $username }}
+    <h1> {{ $title }} </h1>
+    <span> {{ count($users) }} </span>
+    <button wire:click='createNewUser'>
+        Create New User
+    </button>
+
+
+    <form class="p5" wire:submit='createNewUser' action=''>
+        <input wire:model='name' type="text" placeholder="name" />
+        <input wire:model='email' type="email" placeholder="email" />
+        <input wire:model='password' type="password" placeholder="password">
+
+        <button>Create</button>
+    </form>
+    --}}
+
+
+    @foreach ($users as $user)
+    <h3> {{ $user->email }} </h3>
+    @endforeach
+
+    {{ $users ->links() }}
+</div>
+
+
+
+
+

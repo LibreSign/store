@@ -1,0 +1,65 @@
+version: '3.8'
+
+services:
+  nginx:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    ports:
+      - "80:80"
+    volumes:
+      - ./volumes/libresign-e-commerce:/var/www/html
+    depends_on:
+      - php
+    networks:
+      - libresign-e-commerce
+
+  php:
+    build:
+      context: ./php
+      dockerfile: Dockerfile
+    ports:
+      - "5173:5173"
+    volumes:
+      - ./volumes/libresign-e-commerce:/var/www/html
+    networks:
+      - libresign-e-commerce
+
+  db:
+    image: mariadb
+    environment:
+      - TZ=${TZ:-CET}
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD:-root}
+      - MYSQL_DATABASE=${MYSQL_DATABASE:-libresign}
+      - MYSQL_USER=${MYSQL_USER:-libresign}
+      - MYSQL_PASSWORD=${MYSQL_PASSWORD:-libresign}
+    volumes:
+      - ./.docker/config/mysql:/etc/mysql/conf.d
+      - ./volumes/mysql/dump:/docker-entrypoint-initdb.d
+      - ./volumes/mysql/data:/var/lib/mysql
+    restart: unless-stopped
+    ports:
+      - "3306:3306"
+    networks:
+      - libresign-e-commerce
+    
+  mailhog:
+    image: blueimp/mailhog
+    ports:
+      - 8025:8025
+      - 1025:1025
+    networks:
+      - libresign-e-commerce
+  
+  redis:
+    image: redis:latest
+    networks:
+      - libresign-e-commerce
+
+  memcached:
+    image: memcached:latest
+    networks:
+      - libresign-e-commerce
+
+networks:
+  libresign-e-commerce:

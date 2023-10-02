@@ -1,0 +1,4 @@
+/volumes/mysql
+/volumes/postgres
+.vscode
+volumes/libresign-e-commerce/package-lock.json
