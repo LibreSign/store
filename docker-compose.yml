@@ -35,7 +35,7 @@ services:
       - MYSQL_PASSWORD=${MYSQL_PASSWORD:-libresign}
     volumes:
       - ./.docker/config/mysql:/etc/mysql/conf.d
-      - ./volumes/mysql/dump:/docker-entrypoint-initdb.d
+      # - ./volumes/mysql/dump:/docker-entrypoint-initdb.d
       - ./volumes/mysql/data:/var/lib/mysql
     restart: unless-stopped
     ports:

@@ -79,7 +79,7 @@ new #[Layout('layouts.guest')] class extends Component
     </div>
 
     <x-text-h2 :value="__('Log in to LibreSign now')" />
-    
+
     <form wire:submit="login">
         <!-- Email Address -->
         <div>
@@ -122,7 +122,7 @@ new #[Layout('layouts.guest')] class extends Component
     </form>
     <p class="mt-4 text-center text-sm text-gray-500">
         Not a member?
-        <a href="{{ route('register') }}" class="font-semibold leading-6 text-indigo-600 hover:text-indigo-500">Start a 30 day free
+        <a href="{{ route('register') }}" class="font-semibold leading-6 text-indigo-600 dark:text-white hover:text-indigo-500">Start a 30 day free
             trial</a>
     </p>
 </div>

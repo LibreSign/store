@@ -13,14 +13,20 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::view('/', 'welcome')->name('home');
+Route::view('/welcoeme', 'welcome')->name('home2');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])
     ->name('dashboard');
 
+    Route::view('/', 'home')->name('home');
+
 Route::view('profile', 'profile')
     ->middleware(['auth'])
     ->name('profile');
 
-require __DIR__.'/auth.php';
+Route::view('my-plan', 'profile')
+    ->middleware(['auth'])
+    ->name('my-plan');
+    
+require __DIR__ . '/auth.php';
