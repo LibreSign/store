@@ -2,3 +2,4 @@
 /volumes/postgres
 .vscode
 volumes/libresign-e-commerce/package-lock.json
+volumes/libresign-e-commerce/composer.lock
